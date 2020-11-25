@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h3>All students</h3>
+    <table style="border: 1px solid black; text-align: left;border-collapse: collapse;">
+        <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;">Name</th>
+            <th style="border: 1px solid black;">USN</th>
+            <th style="border: 1px solid black;">Sem</th>
+        </tr>
+
+        {% for student in students %} 
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">{{student[0]}}</td>
+                <td style="border: 1px solid black;">{{student[1]}}</td>
+                <td style="border: 1px solid black;">{{student[2]}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
