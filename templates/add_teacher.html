@@ -8,14 +8,27 @@
     </head>
 
     <body>
-        <h1>ADD TEACHERS NEW RECORDS PAGE</h1>
-
-        <form action='/add_teacher_button' method="POST">
-            <label>Name: </label> <input type="text" name="name" placeholder="Enter name"><br>
-            <label>Employee number: </label> <input type="text" name="eno" placeholder="Enter your ENO"><br>
-            <label>Subjects: </label> <input type="text" name="subject" placeholder="Enter your teaching subjects"><br>
-            <input type="submit" value="Submit">
+        <h1 style="text-align: center; font-size: 25px; margin-top: 10%">ADD TEACHERS NEW RECORDS PAGE</h1>
+    
+        <form style="text-align: center; margin-top: 6%;" action='/add_teacher_button' method="POST">
+            <div style="padding: 20px 0;">
+                <input style="background-color: #d3d1d1; padding: 10px 20px;" type="text" name="name" placeholder="Enter name">
+            </div>
+            <div style="padding: 10px 0;">
+                <input style="background-color: #d3d1d1; padding: 10px 20px;" type="text" name="eno" placeholder="Enter your ENO">
+            </div>
+            <div style="padding: 20px 0;">
+                <input style="background-color: #d3d1d1; padding: 10px 20px;" type="text" name="subject" placeholder="Enter your teaching subjects">
+            </div>
+        
+           
+            <button style="margin-top: 30px;" type="submit" value="Submit">Submit</button>
         </form>
+        <footer style="background-color: #212121; text-align: center; margin-top: 14%;">
+            <p style="color: white; padding: 15px 0 ;">ISE | SOSC</p>
+        </footer>
+
+        
 
     </body>
     
