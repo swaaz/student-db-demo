@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -68,3 +68,21 @@ def render_all_teachers():
         teacher_query = c.execute("""SELECT * FROM Teachers""").fetchall()
 
         return render_template("teachers.html", teachers=teacher_query)
+
+
+@app.route('/delete_student/<usn>', methods=['POST'])
+def delete_student(usn):
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+        c.execute("""DELETE FROM Students WHERE usn = (?);""", (usn,))
+
+        return redirect('/view_students')
+
+
+@app.route('/delete_teacher/<eno>', methods=['POST'])
+def delete_teacher(eno):
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+        c.execute("""DELETE FROM Teachers WHERE eno = (?);""", (eno,))
+
+        return redirect('/view_teachers')

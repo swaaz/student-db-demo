@@ -8,14 +8,18 @@
             <th style="border: 1px solid black;">Name</th>
             <th style="border: 1px solid black;">USN</th>
             <th style="border: 1px solid black;">Sem</th>
+            <th style="border: 1px solid black;">Action</th>
         </tr>
 
         {% for student in students %} 
-            <tr style="border: 1px solid black;">
-                <td style="border: 1px solid black;">{{student[0]}}</td>
-                <td style="border: 1px solid black;">{{student[1]}}</td>
-                <td style="border: 1px solid black;">{{student[2]}}</td>
-            </tr>
+            <form action="/delete_student/{{student[1]}}" method="POST">
+                <tr style="border: 1px solid black;">
+                    <td style="border: 1px solid black;">{{student[0]}}</td>
+                    <td style="border: 1px solid black;">{{student[1]}}</td>
+                    <td style="border: 1px solid black;">{{student[2]}}</td>
+                    <td style="border: 1px solid black;"><input type="submit" value="DELETE"></td>
+                </tr>
+            </form>
         {% endfor %}
 
     </table>
