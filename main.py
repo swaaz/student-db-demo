@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -52,4 +52,37 @@ def add_teacher_record():
 
 @app.route('/view_students')
 def render_all_students():
-    with sqlite3.connect('student.db')
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+
+        student_query = c.execute("""SELECT * FROM Students""").fetchall()
+
+        return render_template("students.html", students=student_query)
+
+
+@app.route('/view_teachers')
+def render_all_teachers():
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+
+        teacher_query = c.execute("""SELECT * FROM Teachers""").fetchall()
+
+        return render_template("teachers.html", teachers=teacher_query)
+
+
+@app.route('/delete_student/<usn>', methods=['POST'])
+def delete_student(usn):
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+        c.execute("""DELETE FROM Students WHERE usn = (?);""", (usn,))
+
+        return redirect('/view_students')
+
+
+@app.route('/delete_teacher/<eno>', methods=['POST'])
+def delete_teacher(eno):
+    with sqlite3.connect('student.db') as conn:
+        c = conn.cursor()
+        c.execute("""DELETE FROM Teachers WHERE eno = (?);""", (eno,))
+
+        return redirect('/view_teachers')

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h3>All teachers</h3>
+    <table style="border: 1px solid black; text-align: left;border-collapse: collapse;">
+        <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;">Name</th>
+            <th style="border: 1px solid black;">Employee Number</th>
+            <th style="border: 1px solid black;">Subjects</th>
+            <th style="border: 1px solid black;">Action</th>
+        </tr>
+
+        {% for teacher in teachers %} 
+            <form action="/delete_teacher/{{teacher[1]}}" method="POST">
+                <tr style="border: 1px solid black;">
+                    <td style="border: 1px solid black;">{{teacher[0]}}</td>
+                    <td style="border: 1px solid black;">{{teacher[1]}}</td>
+                    <td style="border: 1px solid black;">{{teacher[2]}}</td>
+                    <td style="border: 1px solid black;"><input type="submit" value="DELETE"></td>
+                </tr>
+            </form>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
