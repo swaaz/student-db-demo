@@ -13,3 +13,6 @@
 - [MySQL](https://www.mysql.com/)
 - [SQLite](https://www.sqlite.org/index.html)
 - [SQLalchemy](https://www.sqlalchemy.org/)
+
+## Flask Blueprint
+[Flask Blue print](https://github.com/hackersandslackers/flask-blueprint-tutorial)
